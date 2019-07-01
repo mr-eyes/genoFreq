@@ -1,8 +1,6 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include <map>
-#include <sparsehash/dense_hash_map>
 #include <google/sparse_hash_map>
 
 using google::sparse_hash_map;      // namespace where class lives by defaul

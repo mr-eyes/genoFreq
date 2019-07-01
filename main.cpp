@@ -9,8 +9,6 @@ int main(int argc, char** argv)
 {
 
     GenoFreq *GENO = new GenoFreq(argv[1]);
-
-    std::cout << GENO->file_name << std::endl;
     
     std::ifstream file(GENO->file_name , std::ios_base::in | std::ios_base::binary);
     try {
@@ -34,7 +32,7 @@ int main(int argc, char** argv)
 
         GENO->create_index(samples_names);
 
-        std::cerr << "Anlayzing... " << std::endl;
+        std::cerr << "Analyzing... " << std::endl;
 
         std::vector<std::string> all_samples;
 

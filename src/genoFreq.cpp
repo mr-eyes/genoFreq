@@ -1,13 +1,11 @@
 #include "genoFreq.hpp"
 #include <sstream>
 #include <fstream>
-#include <iostream>
+
 
 GenoFreq::GenoFreq(std::string filename){ 
-
     this->file_name = filename;
     this->get_all_genotypes();
-
 }
 
 
