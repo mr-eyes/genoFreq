@@ -1,0 +1,3 @@
+[submodule "ThirdParty/sparsepp"]
+	path = ThirdParty/sparsepp
+	url = https://github.com/greg7mdp/sparsepp

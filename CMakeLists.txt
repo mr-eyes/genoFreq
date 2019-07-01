@@ -18,6 +18,7 @@ file(GLOB SOURCES
 
 
 include_directories(include)
+include_directories(ThirdParty/sparsepp)
 
 add_executable(genoFreq ${SOURCES})
 target_link_libraries(genoFreq boost_iostreams)
