@@ -1,10 +1,8 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include <google/sparse_hash_map>
-
-using google::sparse_hash_map;      // namespace where class lives by defaul
-
+#include <sparsepp/spp.h>
+using spp::sparse_hash_map;
 
 class GenoFreq{
 
@@ -13,7 +11,7 @@ public:
     std::string file_name;
     std::vector<std::string> all_genotype = {"./."};
     sparse_hash_map<std::string, sparse_hash_map<std::string,int>> index;
-    std::unordered_map<int,std::string> id_to_sample;
+    sparse_hash_map<int,std::string> id_to_sample;
     std::unordered_map<std::string,int> sample_to_id;
 
     GenoFreq(std::string filename);
