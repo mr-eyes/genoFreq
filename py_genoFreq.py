@@ -56,7 +56,7 @@ class GenoFreq:
 
 
 if len(sys.argv) < 2:
-    sys.exit("run: pypy genotype_freq.py <vcf.gz>")
+    sys.exit("run: python py_genoFreq.py <vcf.gz>")
 else:
     file_name = sys.argv[1]
     print("processing {} ...".format(file_name))
