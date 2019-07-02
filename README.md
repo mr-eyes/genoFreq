@@ -38,7 +38,7 @@ python -m pip install -r requirements.txt
 > Execute
 
 ```shell
-python simplify.py <genpFreq.tsv>
+python scripts/simplify.py <genpFreq.tsv>
 ```
 
 > Output Sample "TSV"
@@ -48,7 +48,6 @@ python simplify.py <genpFreq.tsv>
 | SAMPLE1 | 1443        | 6168    | 18      | 101    | 0        | 
 | SAMPLE2 | 3361        | 4259    | 50      | 60     | 0        | 
 | SAMPLE3 | 2856        | 4740    | 35      | 99     | 0        | 
-
 
 ## 3- Merge samples meta information with genotypes frequenceis
 
@@ -68,7 +67,7 @@ python scripts/merge.py <metaInfo.tsv> <genoFreq.tsv>
 
 ## 4- Visualization
 
-> run
+> Execute
 
 ```shell
 python scripts/plot.py <x_axis> <y_axis>
