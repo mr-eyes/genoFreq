@@ -50,7 +50,9 @@ class GenoFreq:
             header = "Sample" + "\t" + "\t".join(all_genotypes) + "\n"
             results.write(header)
             for sample_name, frequencies in self.index.items():
-                row = sample_name + "\t" + "\t".join(list(map(str, frequencies.values()))) + "\n"
+                row = sample_name + "\t"
+                values = [str(frequencies[value]) for value in all_genotypes]
+                row += "\t".join(values) + "\n"
                 results.write(row)
 
 
