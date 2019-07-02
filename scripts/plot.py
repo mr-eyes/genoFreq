@@ -24,6 +24,9 @@ plt.rcParams.update(**rc)
 
 p = sns.boxplot(x=df[x], y=df[y])
 
+## Limit the y-axis
+#p.set(ylim=(0, 163568))
+
 loc, labels = plt.xticks()
 
 z = list(labels)
