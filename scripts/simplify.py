@@ -8,7 +8,6 @@ else:
 
 
 # Construct categories
-
 def construct_categories(all_genos):
     cate = dict()
     id_to_genotype = dict()
@@ -33,7 +32,7 @@ def construct_categories(all_genos):
         elif x == "0" and int(y) in range(1, 7):
             cate[geno] = "hetero"
         
-        elif x != y and int(x) in range(1, 7) and int(y) in range(1, 7):
+        elif x != y and int(x) and int(y):
             cate[geno] = "comp_het"
 
     return id_to_genotype, cate
