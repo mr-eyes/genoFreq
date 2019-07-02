@@ -14,7 +14,7 @@ make
 ### Python dependencies
 
 ```shell
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 ## 1- Generate genotype frequencies
@@ -75,3 +75,4 @@ python scripts/plot.py <x_axis> <y_axis>
 ```
 
 > Sample
+![](https://ibin.co/4majI6U9yiDO.png)
