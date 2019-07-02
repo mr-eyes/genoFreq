@@ -1,7 +1,14 @@
+import sys
+
+if len(sys.argv) < 3:
+    sys.exit("run: python merge.py <meta.tsv> <genFreq.tsv>")
+else:
+    meta_file = sys.argv[1]
+    freq_file = sys.argv[2]
+
+
 all_categories = ["ungenotyped", "homo_WT", "homo_MT", "hetero", "comp_het"]
 
-freq_file = "simplified_freq.tsv"
-meta_file = "metadata.tsv"
 
 sample_info = {}
 
