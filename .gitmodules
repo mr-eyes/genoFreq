@@ -1,0 +1,3 @@
+[submodule "lib/sparsepp"]
+	path = lib/sparsepp
+	url = https://github.com/greg7mdp/sparsepp
