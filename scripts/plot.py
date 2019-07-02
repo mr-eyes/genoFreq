@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import sys
 
 if len(sys.argv) < 4:
-    sys.exit("run: genoPlot.py <meta.tsv> <x:colName> <y:colName>")
+    sys.exit("run: genoPlot.py <tabular.tsv> <x:colName> <y:colName>")
 
 else:
     file_name = sys.argv[1]
