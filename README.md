@@ -49,7 +49,7 @@ python scripts/simplify.py <genpFreq.tsv>
 | SAMPLE2 | 3361        | 4259    | 50      | 60     | 0        | 
 | SAMPLE3 | 2856        | 4740    | 35      | 99     | 0        | 
 
-## 3- Merge samples meta information with genotypes frequenceis
+## 3- Merge samples meta information with genotypes frequencies
 
 > Execute
 
@@ -70,7 +70,7 @@ python scripts/merge.py <metaInfo.tsv> <genoFreq.tsv>
 > Execute
 
 ```shell
-python scripts/plot.py <x_axis> <y_axis>
+python scripts/plot.py <merged_file.tsv> <x_axis> <y_axis>
 ```
 
 > Sample
