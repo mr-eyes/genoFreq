@@ -2,15 +2,11 @@
 
 Generate frequency matrix for all samples genotypes
 
-## Dependencies
-
-### Boost
-
-`sudo apt-get install libboost-all-dev`
 
 ## Build
 
 ```shell
+git clone --recursive https://github.com/mr-eyes/genoFreq.git
 mkdir build && cd build/
 cmake ..
 make
