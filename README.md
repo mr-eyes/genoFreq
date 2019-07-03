@@ -4,7 +4,7 @@
 
 ## **Summarize and visualize the genotypes categories per sample in a VCF file.**
 
-**genoFreq** is designed to process very large VCF files **(Terabytes)** with high speed & very low memory consumption
+**genoFreq** is designed to process very large VCF files **(Terabytes)** with high speed & very low memory consumption.
 
 ---
 
