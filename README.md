@@ -1,5 +1,7 @@
 # genoFreq
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2de26ea929034dfc93cd461a39cd25e6)](https://www.codacy.com/app/mr-eyes/genoFreq?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mr-eyes/genoFreq&amp;utm_campaign=Badge_Grade)
+
 Summarize and visualize the genotypes categories per sample in a VCF file.
 
 ## Build
