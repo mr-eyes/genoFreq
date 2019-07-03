@@ -19,7 +19,7 @@ with open(freq_file, 'r') as freq:
         geno_info = "\t".join(splt[1:])
         sample_info[sample_name] = geno_info
 
-new_file_name = "merged_" + meta_file.split(".")[0] + freq_file
+new_file_name = "metadata_genoFreq.tsv"
 
 with open(meta_file, 'r') as meta, open(new_file_name , 'w') as merged:
     header = next(meta).strip()
