@@ -33,7 +33,18 @@ python -m pip install -r requirements.txt
 | SAMPLE2 | 3361 | 4259 | 58  | 2   | 0   | 0   | 0   | 0   | 0   | 49  | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 1   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 
 | SAMPLE3 | 2856 | 4740 | 98  | 1   | 0   | 0   | 0   | 0   | 0   | 35  | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   | 0   |    0 | 
 
-## 2- Simplify genoTypes to categories
+## 2- Combine multiple frequencies TSVs (Optional)
+
+```shell
+python scripts/combine_freqs.py <file1.tsv> <file2.tsv> ...
+
+# Or
+
+python scripts/combine_freqs.py ./*tsv
+
+```
+
+## 3- Simplify genoTypes to categories
 
 > Execute
 
@@ -49,7 +60,7 @@ python scripts/simplify.py <genpFreq.tsv>
 | SAMPLE2 | 3361        | 4259    | 50      | 60     | 0        | 
 | SAMPLE3 | 2856        | 4740    | 35      | 99     | 0        | 
 
-## 3- Merge samples meta information with genotypes frequencies
+## 4- Merge samples meta information with genotypes frequencies
 
 > Execute
 
@@ -65,7 +76,7 @@ python scripts/merge.py <metaInfo.tsv> <genoFreq.tsv>
 | SAMPLE2  | Breed2 | M   | 13.69    | NA             | 0.034022612              | 0.171542069    | 2192        | 5215    | 85      | 238    | 0        |
 | SAMPLE3  | Breed3 | M   | 13.69    | NA             | 0.05338513               | 0.175761316    | 2572        | 4915    | 97      | 146    | 0        |
 
-## 4- Visualization
+## 5- Visualization
 
 > Execute
 
