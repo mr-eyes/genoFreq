@@ -5,9 +5,17 @@
 
 int main(int argc, char **argv) {
   int max_haplotype = 6;
+  std::string output_dir;
 
-  if (argc > 2) {
-    if (atoi(argv[2]) > 9) {
+  if (argc < 3){
+      std::cerr << "must provide output path" << std::endl;
+      exit(0);
+    }
+
+  output_dir = argv[2];
+
+  if (argc > 3) {
+    if (atoi(argv[3]) > 9) {
       std::cerr
           << "cannot process haplotypes number greater than 9\nTerminating..."
           << std::endl;
@@ -19,7 +27,7 @@ int main(int argc, char **argv) {
     }
   }
 
-  GenoFreq *GENO = new GenoFreq(argv[1], max_haplotype);
+  GenoFreq *GENO = new GenoFreq(argv[1], max_haplotype, output_dir);
 
   igzstream in(argv[1]);
 

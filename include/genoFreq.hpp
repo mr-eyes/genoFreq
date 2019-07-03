@@ -12,6 +12,7 @@ using phmap::flat_hash_map;
 class GenoFreq {
  public:
   std::string file_name;
+  std::string output_dir;
 
   std::vector<std::string> all_genotype = {"./."};
 
@@ -22,7 +23,7 @@ class GenoFreq {
   std::unordered_map<std::string, int> sample_to_id;
   std::set<std::string> filters_list;
 
-  GenoFreq(std::string filename, int max_haplotype);
+  GenoFreq(std::string filename, int max_haplotype, std::string output_dir);
 
   void get_all_genotypes(int);
 

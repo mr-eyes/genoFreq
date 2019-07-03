@@ -4,8 +4,9 @@
 #include <iostream>
 #include <sys/stat.h>
 
-GenoFreq::GenoFreq(std::string filename, int max_haplotype) {
+GenoFreq::GenoFreq(std::string filename, int max_haplotype, std::string output_dir) {
   this->file_name = filename;
+  this->output_dir = output_dir;
   this->get_all_genotypes(max_haplotype);
 }
 
@@ -105,19 +106,16 @@ inline std::string create_dir(std::string output_file, int serial) {
 }
 
 void GenoFreq::write_results() {
-  std::string output_file = "";
   std::string delimiter;
-  output_file = this->file_name.substr(this->file_name.find_last_of("/\\") + 1);
-  size_t dot_i = output_file.find_last_of('.');
-  output_file = output_file.substr(0, dot_i);
-  output_file = create_dir(output_file, 0);
+  std::string output_dir;
+  output_dir = create_dir(this->output_dir, 0);
 
-  std::cerr << "Writing in dir: " << output_file << std::endl;
+  std::cerr << "Writing in dir: " << output_dir << std::endl;
 
   for (const auto& filter : this->filters_list) {
     std::ofstream myfile;
 
-    myfile.open(output_file + "/" + filter + "_genoFreq.tsv");
+    myfile.open(output_dir + "/" + filter + "_genoFreq.tsv");
     myfile << "sample\t";
 
     delimiter = "";
