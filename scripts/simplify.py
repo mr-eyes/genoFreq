@@ -1,4 +1,7 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import sys
+
 
 if len(sys.argv) < 2:
     sys.exit("run: python simplify.py <genpFreq.tsv>")

@@ -2,7 +2,11 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2de26ea929034dfc93cd461a39cd25e6)](https://www.codacy.com/app/mr-eyes/genoFreq?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mr-eyes/genoFreq&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.org/mr-eyes/genoFreq.svg?branch=master)](https://travis-ci.org/mr-eyes/genoFreq)
 
-Summarize and visualize the genotypes categories per sample in a VCF file.
+## **Summarize and visualize the genotypes categories per sample in a VCF file.**
+
+**genoFreq** is designed to process very large VCF files **(Terabytes)** with high speed & very low memory consumption
+
+---
 
 ## Build
 
@@ -13,18 +17,16 @@ cmake ..
 make
 ```
 
-### Python dependencies
+### Install Python dependencies
 
-```shell
-python -m pip install -r requirements.txt
-```
+`python -m pip install -r requirements.txt`
 
 ## 1- Generate genotype frequencies
 
-> Execute
+> Run
 
 ```shell
-./genoFreq <vcf.gz> <output_dir> <optional: max_haplotype_number, default=6>
+./genoFreq <file.vcf/file.vcf.gz> <output_dir> <optional: max_haplotype_number, default=6>
 ```
 
 > Output Sample "TSV"
@@ -37,18 +39,17 @@ python -m pip install -r requirements.txt
 
 ## 2- Combine multiple frequencies TSVs (Optional)
 
-```shell
-python scripts/combine_freqs.py <file1.tsv> <file2.tsv> ...
+> Run
 
-# Or
+`python scripts/combine_freqs.py <file1.tsv> <file2.tsv> ...`
 
-python scripts/combine_freqs.py ./*tsv
+Or
 
-```
+`python scripts/combine_freqs.py ./*tsv`
 
 ## 3- Simplify genoTypes to categories
 
-> Execute
+> Run
 
 ```shell
 python scripts/simplify.py <genpFreq.tsv>
@@ -64,23 +65,31 @@ python scripts/simplify.py <genpFreq.tsv>
 
 ## 4- Merge samples meta information with genotypes frequencies
 
-> Execute
+> Meta information file sample (flixble for changes)
+
+| SampleID | Breed  | Sex | Coverage | 
+|----------|--------|-----|----------| 
+| SAMPLE1  | Breed1 | M   | 9.62     | 
+| SAMPLE2  | Breed2 | M   | 13.69    | 
+| SAMPLE3  | Breed3  | M   | 13.69    | 
+
+> Run
 
 ```shell
 python scripts/merge.py <metaInfo.tsv> <genoFreq.tsv>
 ```
 
-> sample
+> Sample
 
-| SampleID | Breed | Sex | Coverage | HD_Concordance | Unique_variants_per_20mb | Heterozygosity | ungenotyped | homo_WT | homo_MT | hetero | comp_het |
-|----------|-------|-----|----------|----------------|--------------------------|----------------|-------------|---------|---------|--------|----------|
-| SAMPLE1  | Breed1 | M   | 9.62     | NA             | 0.250035515              | 0.155309014    | 1790        | 5598    | 77      | 265    | 0        |
-| SAMPLE2  | Breed2 | M   | 13.69    | NA             | 0.034022612              | 0.171542069    | 2192        | 5215    | 85      | 238    | 0        |
-| SAMPLE3  | Breed3 | M   | 13.69    | NA             | 0.05338513               | 0.175761316    | 2572        | 4915    | 97      | 146    | 0        |
+| SampleID | Breed  | Sex | Coverage | ungenotyped | homo_WT | homo_MT | hetero | comp_het | 
+|----------|--------|-----|----------|-------------|---------|---------|--------|----------| 
+| SAMPLE1  | Breed1 | M   | 9.62     | 1443        | 6168    | 18      | 101    | 0        | 
+| SAMPLE2  | Breed2 | M   | 13.69    | 3361        | 4259    | 50      | 60     | 0        | 
+| SAMPLE3  | Breed3 | M   | 13.69    | 2856        | 4740    | 35      | 99     | 0        | 
 
 ## 5- Visualization
 
-> Execute
+> Run
 
 ```shell
 python scripts/plot.py <merged_file.tsv> <x_axis> <y_axis>

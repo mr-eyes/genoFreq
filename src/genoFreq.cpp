@@ -51,8 +51,7 @@ void GenoFreq::analyze(std::string& s) {
 
   sample_id = 1;
   while (std::getline(tokenStream, token, '\t')) {
-    this->index[filter_name][this->id_to_sample[sample_id]][token.substr(
-        0, 3)] += 1;
+    this->index[filter_name][this->id_to_sample[sample_id]][token.substr(0, 3)] += 1;
     sample_id++;
   }
 }
