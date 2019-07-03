@@ -1,49 +1,52 @@
-#include <iostream>
-#include <string>
+
 #include "gzstream.h"
-#include <fstream>
 #include "genoFreq.hpp"
+#include <set>
 
-int main (int argc, char ** argv)
-{
+int main(int argc, char **argv) {
+  int max_haplotype = 6;
 
-    GenoFreq *GENO = new GenoFreq(argv[1]);
+  if (argc > 2) {
+    if (atoi(argv[2]) > 9) {
+      std::cerr
+          << "cannot process haplotypes number greater than 9\nTerminating..."
+          << std::endl;
+      
+      exit(0);
 
-    igzstream in(argv[1]);
-
-    std::ifstream zin(argv[1]);
-
-    std::string str = "##";
-
-    while (str.substr(0,2) == "##")
-    {
-        getline(in, str);
+    } else {
+      max_haplotype = atoi(argv[2]);
     }
+  }
 
-    std::vector<std::string> splitted = GENO->split(str, '\t');
-    std::vector<std::string> samples_names;
+  GenoFreq *GENO = new GenoFreq(argv[1], max_haplotype);
 
-    for(int i = 9; i < splitted.size(); i++ ){
-        samples_names.push_back(splitted[i]);
+  igzstream in(argv[1]);
+
+  std::string str = "##";
+
+  // Extract all filter names
+  std::set<std::string> filter_names;
+  while (str.substr(0, 2) == "##") {
+    if (str.substr(0, 8) == "##FILTER") {
+      filter_names.insert(GENO->split(str, ',')[0].substr(13));
     }
+    getline(in, str);
+  }
 
-    GENO->create_index(samples_names);
+  std::vector<std::string> splitted = GENO->split(str, '\t');
+  std::vector<std::string> samples_names;
 
-    std::cerr << "Analyzing... " << std::endl;
+  for (uint i = 9; i < splitted.size(); i++) {
+    samples_names.push_back(splitted[i]);
+  }
 
-    std::vector<std::string> all_samples;
+  GENO->create_index(filter_names, samples_names);
 
-    int sample_id;
+  std::cerr << "Analyzing... " << std::endl;
+  std::vector<std::string> all_samples;
 
-    for(std::string str; std::getline(in, str); ){
-        all_samples =  GENO->extract_all_gtypes(str);    
-        sample_id = 1;
-        for(int i=9; i<all_samples.size(); i++, sample_id++){
-            GENO->index[GENO->id_to_sample[sample_id]][all_samples[i]] += 1;
-            }
-        }
+  for (std::string str; std::getline(in, str);) GENO->analyze(str);
 
-    std::cerr << "writing results... " << std::endl;
-    GENO->write_results();
-
+  GENO->write_results();
 }
