@@ -41,7 +41,7 @@ def construct_categories(all_genos):
 all_categories = ["ungenotyped", "homo_WT", "homo_MT", "hetero", "comp_het"]
 
 
-with open(file_name, 'r') as freq, open("simplified_" + file_name , 'w') as simplified:
+with open(file_name, 'r') as freq, open("simplified.tsv" , 'w') as simplified:
     header = next(freq).strip().split()[1:]
     simplified.write("sample" + "\t" + "\t".join(all_categories) + "\n")
 
