@@ -6,7 +6,7 @@ Summarize and visualize the genotypes categories per sample in a VCF file.
 
 ```shell
 git clone --recursive https://github.com/mr-eyes/genoFreq.git
-mkdir build && cd build/
+mkdir -p genoFreq/build && cd genoFreq/build/
 cmake ..
 make
 ```
