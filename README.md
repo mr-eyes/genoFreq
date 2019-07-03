@@ -22,7 +22,7 @@ python -m pip install -r requirements.txt
 > Execute
 
 ```shell
-./genoFreq <vcf.gz>
+./genoFreq <vcf.gz> <optional: max_haplotype_number, default=6>
 ```
 
 > Output Sample "TSV"
