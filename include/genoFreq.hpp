@@ -1,8 +1,9 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include <sparsepp/spp.h>
-using spp::sparse_hash_map;
+#include <parallel_hashmap/phmap.h>
+
+using phmap::flat_hash_map;
 
 class GenoFreq{
 
@@ -10,8 +11,8 @@ public:
 
     std::string file_name;
     std::vector<std::string> all_genotype = {"./."};
-    sparse_hash_map<std::string, sparse_hash_map<std::string,int>> index;
-    sparse_hash_map<int,std::string> id_to_sample;
+    flat_hash_map<std::string, flat_hash_map<std::string,int>> index;
+    flat_hash_map<int,std::string> id_to_sample;
     std::unordered_map<std::string,int> sample_to_id;
 
     GenoFreq(std::string filename);
