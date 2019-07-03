@@ -12,7 +12,7 @@ file(GLOB SOURCES
 )
 
 include_directories(include)
-include_directories(lib/sparsepp)
+include_directories(lib/parallel-hashmap)
 include_directories(lib/gzstream)
 
 
