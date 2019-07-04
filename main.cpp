@@ -6,6 +6,13 @@
 int main(int argc, char **argv) {
   int max_haplotype = 6;
   std::string output_dir;
+ 
+  if (argc < 2){
+      std::cerr << "run as following" << std::endl;
+      std::cerr << "./genoFreq <file.vcf/file.vcf.gz> ";
+      std::cerr << "<output_dir> <optional: max_haplotype_number, default=6>" << std::endl;
+      exit(0);
+  }
 
   if (argc < 3){
       std::cerr << "must provide output path" << std::endl;

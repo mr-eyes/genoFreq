@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from glob import glob
 
 if len(sys.argv) < 2:
     sys.exit("run: python combine_freqs.py <file1> <file2> ...")
