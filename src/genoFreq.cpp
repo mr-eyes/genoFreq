@@ -5,6 +5,13 @@
 #include <sys/stat.h>
 
 GenoFreq::GenoFreq(std::string filename, int max_haplotype, std::string output_dir) {
+
+  struct stat buffer;   
+  if(stat (filename.c_str(), &buffer)){
+      std::cerr << "file \"" << filename <<"\" does not exist." << std::endl;
+      exit(0);
+  }
+
   this->file_name = filename;
   this->output_dir = output_dir;
   this->get_all_genotypes(max_haplotype);
@@ -109,7 +116,7 @@ void GenoFreq::write_results() {
   std::string output_dir;
   output_dir = create_dir(this->output_dir, 0);
 
-  std::cerr << "Writing in dir: " << output_dir << std::endl;
+  std::cerr << "Writing output in directory: \"" << output_dir << "\"" << std::endl;
 
   for (const auto& filter : this->filters_list) {
     std::ofstream myfile;
