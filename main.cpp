@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
       exit(0);
 
     } else {
-      max_haplotype = atoi(argv[2]);
+      max_haplotype = atoi(argv[3]);
     }
   }
 
